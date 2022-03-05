@@ -85,6 +85,22 @@ export const returnArr = (arrs) => {
   return arr;
 };
 
+export const search = (str = "", data = []) => {
+  let filtered = [];
+  if (str !== "" && data.length > 0) {
+    filtered = data.filter((row) => {
+      return Object.values(row)
+        .join(" ")
+        .toLowerCase()
+        .includes(str.toLowerCase());
+    });
+  } else {
+    filtered = data;
+  }
+
+  return filtered;
+};
+
 export const getPaymentType = (code) => {
   const type = code.substring(0, 2);
   return type === "SP" ? "STAFF PAYMENT" : "THIRD PARTY PAYMENT";

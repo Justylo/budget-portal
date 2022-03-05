@@ -16,7 +16,7 @@ const CustomSelect = ({
       <div className="form-group">
         {label !== "" && <label className="form-label">{label}</label>}
         <select
-          className="form-select btn-square digits"
+          className="form-control btn-square digits"
           value={value}
           onChange={onChange}
           name={name}

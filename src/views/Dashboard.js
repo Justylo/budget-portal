@@ -45,8 +45,8 @@ const Dashboard = () => {
           <p className="mb-0">Welcome Staff</p>
         </div>
 
-        <Link to="#" className="btn btn-primary rounded">
-          <i className="flaticon-381-settings-2 mr-0" />
+        <Link to="/import/dependencies" className="btn btn-primary rounded">
+          <i className="flaticon-381-settings-2 mr-0"> </i>
         </Link>
       </div>
 

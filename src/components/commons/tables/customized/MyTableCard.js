@@ -7,7 +7,7 @@ import CustomPagination from "./tables/CustomPagination";
 import "./tables/table.css";
 import { search } from "../../../../services/utils/helpers";
 
-const TableCard = ({
+const MyTableCard = ({
   columns,
   rows,
   handleEdit = undefined,
@@ -81,6 +81,7 @@ const TableCard = ({
                         {columns.map((col) => (
                           <td key={col.key}>{row[col.key]}</td>
                         ))}
+
                         {(handleEdit !== undefined ||
                           handleDelete !== undefined ||
                           assignRole !== undefined) && (
@@ -124,6 +125,7 @@ const TableCard = ({
               </TableBody>
             </table>
           </div>
+
           <div className="pagination justify-content-center">
             <CustomPagination
               total={rows.length}
@@ -138,4 +140,4 @@ const TableCard = ({
   );
 };
 
-export default TableCard;
+export default MyTableCard;

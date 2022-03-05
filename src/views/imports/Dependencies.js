@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import * as XLSX from "xlsx";
-import TableCard from "../../components/commons/tables/customized/TableCard";
+import MyTableCard from "../../components/commons/tables/customized/MyTableCard";
 import TextInputField from "../../components/forms/input/TextInputField";
 import CustomSelect from "../../components/forms/select/CustomSelect";
 import CustomSelectOptions from "../../components/forms/select/CustomSelectOptions";
@@ -66,14 +66,18 @@ const Dependencies = () => {
 
   const convertToJson = (headers, data) => {
     const rows = [];
+
     data.forEach((row) => {
       let rowData = {};
+
       row.forEach((el, index) => {
         rowData[headers[index]] = el;
       });
+
       rows.push(rowData);
     });
     // console.log(headers)
+    // console.log("Rows", rows);
     return rows;
   };
 
@@ -81,6 +85,7 @@ const Dependencies = () => {
     const file = e.target.files[0];
 
     const reader = new FileReader();
+
     reader.onload = (event) => {
       // console.log(event)
       // parse data
@@ -113,7 +118,7 @@ const Dependencies = () => {
     }
   };
 
-  console.log(cols, data);
+  // console.log(cols + " Columns", data + " Data");
 
   return (
     <>
@@ -166,8 +171,9 @@ const Dependencies = () => {
           </div>
         </div>
       </div>
+
       <div className="row">
-        <TableCard columns={cols} rows={data} />
+        <MyTableCard columns={cols} rows={data} />
       </div>
     </>
   );

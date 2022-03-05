@@ -35,6 +35,7 @@ const DataTableComponent = ({
   const getSearchTerm = (e) => {
     searchKeyWord(e.target.value);
   };
+
   return (
     <>
       <div className="card">

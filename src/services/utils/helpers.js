@@ -87,6 +87,7 @@ export const returnArr = (arrs) => {
 
 export const search = (str = "", data = []) => {
   let filtered = [];
+
   if (str !== "" && data.length > 0) {
     filtered = data.filter((row) => {
       return Object.values(row)

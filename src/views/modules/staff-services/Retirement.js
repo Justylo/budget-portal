@@ -44,6 +44,7 @@ const Retirement = () => {
   return (
     <>
       {loading && <Loading />}
+
       <div className="row">
         <div className="col-md-12">
           <div className="card">
@@ -55,6 +56,7 @@ const Retirement = () => {
                     <th>Action</th>
                   </tr>
                 </thead>
+
                 <tbody>
                   {claims.length > 0 ? (
                     claims.map((claim) => (

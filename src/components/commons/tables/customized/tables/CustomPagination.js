@@ -44,7 +44,9 @@ const CustomPagination = ({
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
       />
+
       {paginationItems}
+
       <Pagination.Next
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}

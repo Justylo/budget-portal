@@ -134,7 +134,10 @@ const Settings = () => {
           setLoading(false);
           setSettings(res.data.data);
         })
-        .catch((err) => console.log(err.message));
+        .catch((err) => {
+          setLoading(false);
+          console.log(err.message);
+        });
     } catch (error) {
       console.log(error);
     }

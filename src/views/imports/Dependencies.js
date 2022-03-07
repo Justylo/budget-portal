@@ -5,6 +5,7 @@ import MyTableCard from "../../components/commons/tables/customized/MyTableCard"
 import TextInputField from "../../components/forms/input/TextInputField";
 import CustomSelect from "../../components/forms/select/CustomSelect";
 import CustomSelectOptions from "../../components/forms/select/CustomSelectOptions";
+import { bulk } from "../../services/utils/controllers";
 
 const EXTS = ["xlsx", "xls", "csv"];
 
@@ -39,19 +40,33 @@ const Dependencies = () => {
       label: "Modules",
       value: "modules",
     },
+    {
+      id: 6,
+      label: "Roles",
+      value: "roles",
+    },
+    {
+      id: 7,
+      label: "Grade Levels",
+      value: "grade-levels",
+    },
   ];
 
   const importData = (e) => {
     e.preventDefault();
 
-    console.log(dataType, data);
+    const body = {
+      type: dataType,
+      data,
+    };
 
-    // Controllers.bulkSubmit("imports", {
-    //   type: dataType,
-    //   data,
-    // })
-    //   .then((res) => console.log(res.data))
-    //   .catch((err) => console.log(err.message));
+    // console.log(dataType, data);
+
+    // console.log(body.data);
+
+    bulk("imports", body)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err.message));
 
     setCols([]);
     setDataType("");
@@ -118,7 +133,11 @@ const Dependencies = () => {
     }
   };
 
+<<<<<<< HEAD
   // console.log(cols + " Columns", data + " Data");
+=======
+  // console.log(cols, data);
+>>>>>>> af337869edd615133b988319a25c3b0d7a501bae
 
   return (
     <>

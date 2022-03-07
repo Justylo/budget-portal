@@ -366,52 +366,56 @@ const AddModules = () => {
                           <div className="col-md-12">
                             <div className="dropdown-divider"></div>
 
-                            <div className="d-flex justify-content-between">
-                              {roles && roles.length > 0
-                                ? roles.map((role) => {
-                                    return (
-                                      <div className="form-check" key={role.id}>
-                                        <input
-                                          className="form-check-input"
-                                          type="checkbox"
-                                          value={role.id}
-                                          onChange={(e) => {
-                                            let valIndex =
-                                              state.roles.includes(
-                                                e.target.value
-                                              ) &&
-                                              state.roles.indexOf(
-                                                e.target.value
-                                              );
-                                            e.target.checked
-                                              ? setState({
-                                                  ...state,
-                                                  roles: [
-                                                    e.target.value,
-                                                    ...state.roles,
-                                                  ],
-                                                })
-                                              : state.roles.includes(
-                                                  e.target.value
-                                                ) &&
-                                                state.roles.splice(
-                                                  valIndex,
-                                                  1
-                                                ) &&
-                                                setState({
-                                                  ...state,
-                                                  roles: state.roles,
-                                                });
-                                          }}
-                                        />
+                            <div className="d-flex justify-content-between mt-5 mb-5">
+                              <div className="row">
+                                {roles && roles.length > 0
+                                  ? roles.map((role) => {
+                                      return (
+                                        <div key={role.id} className="col-md-3">
+                                          <div className="form-check">
+                                            <input
+                                              className="form-check-input"
+                                              type="checkbox"
+                                              value={role.id}
+                                              onChange={(e) => {
+                                                let valIndex =
+                                                  state.roles.includes(
+                                                    e.target.value
+                                                  ) &&
+                                                  state.roles.indexOf(
+                                                    e.target.value
+                                                  );
+                                                e.target.checked
+                                                  ? setState({
+                                                      ...state,
+                                                      roles: [
+                                                        e.target.value,
+                                                        ...state.roles,
+                                                      ],
+                                                    })
+                                                  : state.roles.includes(
+                                                      e.target.value
+                                                    ) &&
+                                                    state.roles.splice(
+                                                      valIndex,
+                                                      1
+                                                    ) &&
+                                                    setState({
+                                                      ...state,
+                                                      roles: state.roles,
+                                                    });
+                                              }}
+                                            />
 
-                                        <label className="form-check-label">
-                                          {role.name}
-                                        </label>
-                                      </div>
-                                    );
-                                  })
-                                : null}
+                                            <label className="form-check-label">
+                                              {role.name}
+                                            </label>
+                                          </div>
+                                        </div>
+                                      );
+                                    })
+                                  : null}
+                              </div>
                             </div>
                           </div>
 

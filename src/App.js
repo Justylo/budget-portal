@@ -333,7 +333,7 @@ const App = () => {
 
         <Route
           exact
-          path="/rettire"
+          path="/retire"
           element={
             <ProtectedRoute>
               <Retirement />
@@ -343,7 +343,7 @@ const App = () => {
 
         <Route
           exact
-          path="/rettire/:id"
+          path="/retire/:id"
           element={
             <ProtectedRoute>
               <RetirementDetails />

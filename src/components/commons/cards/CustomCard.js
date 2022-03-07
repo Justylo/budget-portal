@@ -1,17 +1,14 @@
 import React from "react";
 
-const CustomCard = ({ color }) => {
+const CustomCard = ({ color = "white", count = 0, title = "", path = "" }) => {
   return (
     <div>
       <div className={`card bg-${color}`}>
         <div className="card-body">
           <div className="media align-items-center">
             <div className="media-body mr-3">
-              <h2 className="fs-36 text-black font-w600">2,356</h2>
-              <p className="fs-18 mb-0 text-black font-w500">
-                Properties for Sale
-              </p>
-              <span className="fs-13 tx-primary">Target 3k/month</span>
+              <h2 className="fs-36 text-black font-w600">{count}</h2>
+              <p className="fs-18 mb-0 text-black font-w500">{title}</p>
             </div>
 
             {/* <div className="d-inline-block position-relative donut-chart-sale">

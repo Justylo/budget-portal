@@ -6,6 +6,12 @@ export const collection = async (entity) => {
   return await axios.get(`${ENDPOINT.url + entity}`, { headers: authHeader() });
 };
 
+export const bulk = async (entity, body) => {
+  return await axios.post(`${ENDPOINT.url + entity}`, body, {
+    headers: authHeader(),
+  });
+};
+
 export const fetch = async (entity, id) => {
   return await axios.get(`${ENDPOINT.url + entity}/${id}`, {
     headers: authHeader(),

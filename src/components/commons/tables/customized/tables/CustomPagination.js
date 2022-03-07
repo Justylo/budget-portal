@@ -39,19 +39,21 @@ const CustomPagination = ({
   if (totalPages === 0) return null;
 
   return (
-    <Pagination>
-      <Pagination.Prev
-        onClick={() => onPageChange(currentPage - 1)}
-        disabled={currentPage === 1}
-      />
+    <div className="table-responsive">
+      <Pagination>
+        <Pagination.Prev
+          onClick={() => onPageChange(currentPage - 1)}
+          disabled={currentPage === 1}
+        />
 
-      {paginationItems}
+        {paginationItems}
 
-      <Pagination.Next
-        onClick={() => onPageChange(currentPage + 1)}
-        disabled={currentPage === totalPages}
-      />
-    </Pagination>
+        <Pagination.Next
+          onClick={() => onPageChange(currentPage + 1)}
+          disabled={currentPage === totalPages}
+        />
+      </Pagination>
+    </div>
   );
 };
 

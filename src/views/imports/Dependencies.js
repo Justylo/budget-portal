@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import * as XLSX from "xlsx";
-import MyTableCard from "../../components/commons/tables/customized/MyTableCard";
+import TableCard from "../../components/commons/tables/customized/TableCard";
 import TextInputField from "../../components/forms/input/TextInputField";
 import CustomSelect from "../../components/forms/select/CustomSelect";
 import CustomSelectOptions from "../../components/forms/select/CustomSelectOptions";
@@ -133,11 +133,7 @@ const Dependencies = () => {
     }
   };
 
-<<<<<<< HEAD
-  // console.log(cols + " Columns", data + " Data");
-=======
   // console.log(cols, data);
->>>>>>> af337869edd615133b988319a25c3b0d7a501bae
 
   return (
     <>
@@ -192,7 +188,7 @@ const Dependencies = () => {
       </div>
 
       <div className="row">
-        <MyTableCard columns={cols} rows={data} />
+        <TableCard columns={cols} rows={data} />
       </div>
     </>
   );

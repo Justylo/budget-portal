@@ -3,9 +3,10 @@ import * as Icon from "react-feather";
 import TableHeader from "./tables/TableHeader";
 import TableBody from "./tables/TableBody";
 import TableRow from "./tables/TableRow";
-import CustomPagination from "./tables/CustomPagination";
+// import CustomPagination from "./tables/CustomPagination";
 import "./tables/table.css";
 import { search } from "../../../../services/utils/helpers";
+import MyPagination from "../../../../views/MyPagination";
 
 const TableCard = ({
   columns,
@@ -124,11 +125,19 @@ const TableCard = ({
               </TableBody>
             </table>
           </div>
-          <div className="pagination justify-content-center">
-            <CustomPagination
+
+          <div className="d-flex justify-content-center">
+            {/* <CustomPagination
               total={rows.length}
               itemsPerPage={itemsPerPage}
               currentPage={currentPage}
+              onPageChange={(page) => setCurrentPage(page)}
+            /> */}
+
+            <MyPagination
+              currentPage={currentPage}
+              totalCount={rows.length}
+              pageSize={itemsPerPage}
               onPageChange={(page) => setCurrentPage(page)}
             />
           </div>

@@ -1,14 +1,13 @@
-import classnames from "classnames";
+import Pagination from "react-bootstrap/Pagination";
 import { usePagination, DOTS } from "../services/hooks/usePagination";
 
-const Pagination = (props) => {
+const MyPagination = (props) => {
   const {
     onPageChange,
     totalCount,
-    siblingCount = 1,
+    siblingCount = 2,
     currentPage,
     pageSize,
-    className,
   } = props;
 
   const paginationRange = usePagination({
@@ -33,44 +32,37 @@ const Pagination = (props) => {
   let lastPage = paginationRange[paginationRange.length - 1];
 
   return (
-    <ul
-      className={classnames("pagination-container", { [className]: className })}
-    >
-      <li
-        className={classnames("pagination-item", {
-          disabled: currentPage === 1,
-        })}
-        onClick={onPrevious}
-      >
-        <div className="arrow left" />
-      </li>
+    <nav aria-label="Page navigation example">
+      <Pagination>
+        <Pagination.Item disabled={currentPage === 1} onClick={onPrevious}>
+          <div className="arrow left">&laquo;</div>
+        </Pagination.Item>
 
-      {paginationRange.map((pageNumber) => {
-        if (pageNumber === DOTS) {
-          return <li className="pagination-item dots">&#8230;</li>;
-        }
+        {paginationRange.map((pageNumber) => {
+          if (pageNumber === DOTS) {
+            return (
+              <Pagination.Item className="page-item">&#8230;</Pagination.Item>
+            );
+          }
 
-        return (
-          <li
-            className={classnames("pagination-item", {
-              selected: pageNumber === currentPage,
-            })}
-            onClick={() => onPageChange(pageNumber)}
-          >
-            {pageNumber}
-          </li>
-        );
-      })}
-      <li
-        className={classnames("pagination-item", {
-          disabled: currentPage === lastPage,
+          return (
+            <Pagination.Item
+              className={
+                pageNumber === currentPage ? "page-item active" : "page-item"
+              }
+              onClick={() => onPageChange(pageNumber)}
+            >
+              {pageNumber}
+            </Pagination.Item>
+          );
         })}
-        onClick={onNext}
-      >
-        <div className="arrow right" />
-      </li>
-    </ul>
+
+        <Pagination.Item disabled={currentPage === lastPage} onClick={onNext}>
+          <div className="arrow right">&raquo;</div>
+        </Pagination.Item>
+      </Pagination>
+    </nav>
   );
 };
 
-export default Pagination;
+export default MyPagination;
